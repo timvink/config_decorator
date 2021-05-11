@@ -1,0 +1,23 @@
+# General settings
+section1:
+     country: it
+     logging_level: DEBUG
+     path: /mypath
+     version: !!float 1.2 # model version
+ 
+# Data settings
+section2:
+     cols: [Col1, Col2, Col3]
+     seed: !!int 42
+     test_values: [25.0, 50.0, 75.0]
+ 
+# Date parsing
+# Both these options will be read as `datetime.date`
+date1: 2020-05-07 # don't forget the leading zeros before day and month
+date2: !!timestamp 2020-5-7 # use this to be explicit or to avoid leading zeros
+ 
+# Anchors
+# This allows you to re-use variables in different parts of the document
+# In this case, both `var1` and `same_as_var1` will be 10
+var1: &var1 10
+same_as_var1: *var1
