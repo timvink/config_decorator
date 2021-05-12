@@ -66,7 +66,7 @@ SETTINGS = read_config()
 
 The problem however is that this does not [auto-reload](https://godatadriven.com/blog/write-less-terrible-code-with-jupyter-notebook/), which is useful when you are using jupyter notebooks. This means that if you update the config, you'll need to restart the kernel to reload the `SETTINGS` global. You can fix this by adding a `settings = read_config()` inside each of your functions that need it.
 
-That's a bit verbose perhaps, so you could choose to add a [decorator](https://realpython.com/primer-on-python-decorators):
+However, now cannot change the `settings` depending on the context (for example a different set of `settings` when unit testing). You could choose to add a `settings` parameter to your function and add a [decorator](https://realpython.com/primer-on-python-decorators) to fill it:
 
 ```python
 # config.py
@@ -102,5 +102,5 @@ This approach is nice because:
 
 To get started with a working example, you can fork and clone this repository.
 
-If this approach doesn't suit your needs, consider adding the parts of the config that you need inside a function as an explicit parameter. That's the approach [gin-config](https://github.com/google/gin-config) takes, a python package built by google explicitly for machine learning configuration management. They're also a great [intro to gin](https://calmcode.io/gin/intro-to-gin.html) video  by [calmcode](https://calmcode.io/).
+If this approach doesn't suit your needs, consider adding the parts of the config that you need inside a function as an explicit parameter. That's the approach [gin-config](https://github.com/google/gin-config) takes, a python package built by google explicitly for machine learning configuration management. There's also a great [intro to gin](https://calmcode.io/gin/intro-to-gin.html) video  =by [calmcode](https://calmcode.io/).
 
